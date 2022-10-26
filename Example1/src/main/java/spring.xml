@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="shape" class="com.bsl.pojos.Triangle">
+		<!--In constructor-arg sequence does not matter only the constructor number 
+			and its parameter is matter -->
+		<constructor-arg value="TriangleA" />
+		<constructor-arg value="34" type="int" />
+	</bean>
+	<bean id="shape2" class="com.bsl.pojos.Circle" />
+	<!-- <bean id="application" class="com.bsl.app.Application"> -->
+	<!-- Setter Injection -->
+
+
+	<!-- <property name="shape"> <bean class="com.bsl.pojos.Triangle" /> </property> -->
+
+
+	<!-- <property name="shape" ref="shape"/> -->
+
+	<!-- </bean> -->
+
+	<!-- <bean id="application" class="com.bsl.app.Application" autowire="byName"/> -->
+
+
+	<bean id="application" class="com.bsl.app.Application">
+		<!-- By default call the no-arg constructors -->
+		<constructor-arg ref="shape" />
+	</bean>
+</beans>
